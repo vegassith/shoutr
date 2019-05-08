@@ -4,4 +4,12 @@ module ShoutHelper
         gravatar_url =  "https://secure.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
         image_tag gravatar_url
     end
+
+    def like_buttons(shout)
+        if current_user.liked?(shout)
+            link_to "Unlike", unlike_shouts_path(id: shout), method: :delete
+        else
+            link_to "Like", like_shouts_path(id: shout), method: :post
+        end
+    end
 end
