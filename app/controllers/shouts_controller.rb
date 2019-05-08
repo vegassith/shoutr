@@ -24,7 +24,7 @@ class ShoutsController < ApplicationController
          
     end
 
-    def text_shout_ontent_params
+    def text_shout_content_params
         params.require(:shout).require(:content).permit(:body) 
     end
 
