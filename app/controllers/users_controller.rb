@@ -5,6 +5,8 @@ class UsersController < Clearance::UsersController
         @shouts = @user.shouts
 
     end
+
+  
     
     def new
         @user = User.new
