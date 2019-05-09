@@ -4,11 +4,12 @@ class Search
     @term = term
     end
 
-    def results
-        ShoutSearchQuery.new(term: "#{term}").to_relation
+    def run
+        
+        ShoutSearchQuery.new(term: term).to_relation
     end
 
-
+    alias results run
 
 
 
