@@ -1,20 +1,14 @@
 <h1>Shoutr Dashboard</h1>
 
-<%= form_for @shout do |f| %>
-<%= f.hidden_field :content_type, value: "TextShout" %>
-        <%= f.fields_for :content do |content_form| %>
-                 <%= content_form.text_field :body, placeholder: "Shout Here!", required: true %>
-                 <% end %>
-        <%= f.submit "Shout"%>
-<% end %>
+<%=shout_form_for(TextShout) do |f| %>
+<%= f.text_field :body, placeholder: "Shout Here!", required: true %>
+<%end%>
 
-<%= form_for @shout do |f| %>
-<%= f.hidden_field :content_type, value: "PhotoShout" %>
-        <%= f.fields_for :content do |content_form| %>
-                 <%= content_form.file_field :image, required: true %>
-                 <% end %>
-        <%= f.submit "Shout"%>
-<% end %>
+<%=shout_form_for(PhotoShout) do |f| %>
+<%=f.file_field :image, required: true %>
+<%end%>
+
+
 
 <%= render @shouts %>
 
